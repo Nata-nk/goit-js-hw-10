@@ -1,6 +1,6 @@
 import flatpickr from "flatpickr";
 import iziToast from "izitoast";
-
+const input = document.querySelector('#datetime-picker');
 const button = document.querySelector('.button');
 
 const options = {
@@ -61,10 +61,15 @@ const timer = {
       this.elements.seconds.textContent = this.addLeadingZero(timeComponents.seconds);
     }, 1000);
       button.classList.remove("normal-button"); 
+       button.addEventListener('click', () => {
+          timer.start();
+      });
+      input.disabled = true;
     },
 
   stop() {
-    clearInterval(this.intervalId);
+      clearInterval(this.intervalId);
+      input.disabled = false;
   },
 
   getConvertMs(ms) {
