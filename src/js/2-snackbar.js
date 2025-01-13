@@ -28,6 +28,9 @@ const onFofmSubmit = event => {
          event.preventDefault();
 const selected = document.querySelector('input[name="state"]:checked');
     makeGreeting(delay)
+        .finally(la =>
+        form.reset()
+        )
         .then(greeting => iziToast.show({
             title: 'OK',
             message: `Fulfilled promise in ${delay}ms`,
@@ -41,10 +44,7 @@ const selected = document.querySelector('input[name="state"]:checked');
             color: '#ef4040',
             theme: 'dark',
             position: 'topRight',
-        }))
-        .finally(la =>
-        form.reset()
-    )
+        }));
 };
 
 
