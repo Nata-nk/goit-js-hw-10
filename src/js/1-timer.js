@@ -18,7 +18,8 @@ const options = {
     title: 'Error',
     message: 'Please choose a date in the future',
     position: 'topCenter',
-    color: 'red',
+    color: '#ef4040',
+    theme: 'dark',
 });    
       };
       button.classList.add("normal-button");
