@@ -15,7 +15,8 @@ const options = {
       if (timer.deadline.getTime() < Date.now()) {
           button.classList.remove("normal-button");
           return iziToast.show({
-    title: 'Please choose a date in the future',
+    title: 'Error',
+    message: 'Please choose a date in the future',
     position: 'topCenter',
     color: 'red',
 });    
@@ -24,7 +25,6 @@ const options = {
       button.addEventListener('click', () => {
           timer.start();
       });
-      this.enableTime = false;
   },
 };
 
