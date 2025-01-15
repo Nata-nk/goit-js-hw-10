@@ -9,27 +9,27 @@ const onChange = event => {
 
 }
 
+const onFormSubmit = event => {
+         event.preventDefault();
+    const selected = document.querySelector('input[name="state"]:checked');
+    
 const makeGreeting = event => {
 	return new Promise((resolve, reject) => {
         setTimeout(() => {
             const selected = document.querySelector('input[name="state"]:checked');
             let ful = selected.value;
 				if(ful === 'fulfilled') {
-                    resolve();
+                    resolve(delay);
 				} else {
-                    reject();
+                    reject(delay);
 				}
 			}, delay);
     });
 };
 
-
-const onFofmSubmit = event => {
-         event.preventDefault();
-const selected = document.querySelector('input[name="state"]:checked');
-    makeGreeting(delay)
-        .finally(la =>
-        form.reset()
+    makeGreeting()
+        .finally(fin =>
+            form.reset()
         )
         .then(greeting => iziToast.show({
             title: 'OK',
@@ -45,8 +45,9 @@ const selected = document.querySelector('input[name="state"]:checked');
             theme: 'dark',
             position: 'topRight',
         }));
+
 };
 
 
 input.addEventListener('input', onChange);
-form.addEventListener('submit', onFofmSubmit)
+form.addEventListener('submit', onFormSubmit)
