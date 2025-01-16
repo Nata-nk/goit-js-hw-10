@@ -5,14 +5,12 @@ const input = document.querySelector('.input-delay');
 let delay = 0;
 
 const onChange = event => {
-    delay = event.target.value;    
+    delay = Number(event.target.value);    
 
 }
 
 const onFormSubmit = event => {
-         event.preventDefault();
-    const selected = document.querySelector('input[name="state"]:checked');
-    
+         event.preventDefault();    
 const makeGreeting = event => {
 	return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -28,10 +26,10 @@ const makeGreeting = event => {
 };
 
     makeGreeting()
-        .finally(fin =>
+        .finally(() =>
             form.reset()
         )
-        .then(greeting => iziToast.show({
+        .then(result => iziToast.show({
             title: 'OK',
             message: `Fulfilled promise in ${delay}ms`,
             color: '#59a10d',
